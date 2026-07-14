@@ -4,6 +4,9 @@ title: Accommodation
 permalink: /accommodation/
 ---
 
+To be Confirmed
+
+{% comment %}
 
 ## Rooms at Churchill College
 
@@ -179,5 +182,4 @@ Tel: +44 3337 773976
 <br><a href="https://www.booking.com/searchresults.en-gb.html?aid=356980&label=gog235jc-1DCAsoUEIWaGlsdG9uLWNhbWJyaWRnZS1ob3RlbEgJWANoUIgBAZgBCbgBF8gBDNgBA-gBAfgBAogCAagCA7gC0sKelwbAAgHSAiQwYmMwNDVlMy0xOWU2LTQ0ZjYtYTk5Ny01YTI2YTY5ZmEzMmLYAgTgAgE&sid=a8718536d81a98c97923288668fa86fa&city=-2591658&">Booking.com</a>
 <br><a href="https://www.tripadvisor.co.uk/SmartDeals-g8722221-Cambridge_Gloucester_Cotswolds_England-Hotel-Deals.html">TripAdvisor</a>
 
-
-
+{% endcomment %}
