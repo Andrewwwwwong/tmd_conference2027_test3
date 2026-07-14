@@ -4,7 +4,7 @@ title: Accommodation
 permalink: /accommodation/
 ---
 
-To be Confirmed
+To be Confirmed.
 
 {% comment %}
 
