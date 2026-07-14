@@ -3,6 +3,11 @@ layout: page
 title: Registration
 permalink: /registration/
 ---
+
+To be Confirmed.
+
+{% comment %}
+
 ### For last minute registrations please use the link below. Once completed, please email the conference address with your confirmation number (this will start with CAM) and also state any special dietary requirements for the catering team.
 
 **[Click here to be redirected to the registration payment page](https://onlinesales.admin.cam.ac.uk/conferences-and-events/materials-science-metallurgy/2d-tmds/2d-tmds-2025)**
@@ -53,3 +58,4 @@ Conference Fees
  
 **In case of any problems with online payment, on-site payment will be available. Please email Ana at the conference address to let her know you plan to do On Site Registration.**
 
+{% endcomment %}
