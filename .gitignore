@@ -1,0 +1,12 @@
+_site
+.sass-cache
+.jekyll-metadata
+.vendor
+.bin
+tmd_conference/Gemfile.lock
+.bundle
+tmd_conference/_site
+.DS_Store
+.jekyll-cache
+tmd_conference/_data/*_program.csv
+program.xlsx
