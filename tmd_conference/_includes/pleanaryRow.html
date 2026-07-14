@@ -1,0 +1,6 @@
+<td colspan=4 class="centred">
+	{% capture text %}
+	{{ include.text }}{% if include.room %} ({{ include.room }}){% endif %}:
+	{% endcapture %}
+	{% include talkInfo.html prefix="P" num=include.num time=include.time room=include.room text=text speaker=include.speaker title=include.title abstract=include.abstract affiliation=include.affiliation %}
+</td>

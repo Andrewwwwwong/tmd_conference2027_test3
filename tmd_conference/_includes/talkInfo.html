@@ -1,0 +1,28 @@
+<div onclick="event.stopPropagation()">
+	{%- capture id -%}
+		{{ include.prefix }}{{ include.num }}
+	{%- endcapture -%}
+	{%- capture next_id -%}
+		{{ include.prefix }}{{ include.num | plus: 1 }}
+	{%- endcapture -%}
+	{%- capture prev_id -%}
+		{{ include.prefix }}{{ include.num | minus: 1 }}
+	{%- endcapture -%}
+	{{ include.text }}<b>{{ include.speaker }}</b><br>
+	<p onClick="showTalkInfo('{{ id }}')" class="talk-info-button">{{ include.title }}</p>
+	{% if include.title %}<a onclick="showTalkInfo('{{ id }}')" class="talk-info-button">[More Info]</a>{% endif %}
+	<div style="display:none" class="talk-info" id="{{ id }}">
+		<div style="position:absolute;right:5px;text-align:right">
+			<b>{{ include.room }}, {{ include.time }}</b>
+			<button onclick="toggleTalkHighlighted('{{ id }}')" style="cursor:pointer;margin-right:2px">📝</button><button onclick="hideTalkInfo('{{ id }}')" style="cursor:pointer">✖</button>
+			<div style="cursor:pointer">
+				<a onclick="showTalkInfo('{{ prev_id }}')">&lt; View Prev</a> | <a onclick="showTalkInfo('{{ next_id }}')">View Next &gt;</a>
+			</div>
+		</div>
+		<h2>{{ include.speaker }}</h2>
+		<h4>{{ include.affiliation }}</h4>
+		<h3>{{ include.title }}</h3>
+		
+		{{ include.abstract | markdownify }}
+	</div>
+</div>

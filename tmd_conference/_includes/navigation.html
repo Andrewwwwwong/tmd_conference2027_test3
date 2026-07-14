@@ -1,0 +1,31 @@
+<nav id="primary-nav" class="inner" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+	<a href="{{ '/' | relative_url }}" itemprop="url" class="menu-item">
+		<div class="menu-item">
+	  
+ 		<li>      
+			<span itemprop="name">{{ site.data.theme.t.home | default: 'Home' }}</span>
+		</li>
+		</div>
+	</a>
+
+    <!-- site.pages links -->
+    {% assign default_paths = site.pages | map: "path" %}
+    {% assign page_paths = site.data.theme.navigation_pages | default: default_paths %}
+
+    {% for path in page_paths %}
+      {% assign my_page = site.pages | where: "path", path | first %}
+	  {% if my_page.title %}
+	  <a href="{{ my_page.url | relative_url }}" itemprop="url">
+		<div class="menu-item">
+		
+			<li>
+				<span itemprop="name">{{ my_page.title | escape }}</span>
+			</li>
+		</div>
+	  </a>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

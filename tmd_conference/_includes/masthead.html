@@ -1,0 +1,43 @@
+{% assign site_logo = site.logo | relative_url %}
+
+<header id="masthead">
+  <div class="hr-navbar">
+	<div class="hr-titlebox">
+      {% if page.url == '/' %}
+	  <a href="{{ '/' | relative_url }}" id="title-link">
+		<div class="site-title">
+          <h3>
+            
+              {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
+              <span>{{ site.title | escape }}</span>
+          </h3>
+		  <h5>
+  		    {{ site.date }}
+		  </h5> 
+		</div>
+	  </a>
+		
+      {% else %}
+        <a href="{{ '/' | relative_url }}" id="title-link">
+		<div class="site-title">
+          <h3>
+            
+              {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
+              <span>{{ site.title | escape }}</span>
+          </h3>
+		  <h5>
+  		    {{ site.date }}
+		  </h5> 
+		</div>
+	  </a>
+      {% endif %}
+	</div>
+	<div class="hr-navbar-buttonbox">
+	  {% include navigation.html %}
+	</div>
+
+	<!--
+	{% include contact-list.html %}
+	-->	
+  </div>
+</header>

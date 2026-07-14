@@ -1,0 +1,47 @@
+<td class="top-aligned">
+	{% include talkInfo.html 
+		prefix="A"
+		num=include.numA
+		time=include.time
+		room=include.roomA
+		speaker=include.speakerA 
+		title=include.titleA 
+		abstract=include.abstractA 
+		affiliation=include.affiliationA %}
+</td>
+<td class="top-aligned">
+	{% assign prefix = include.day | append: "B" %}
+	{% include talkInfo.html 
+		prefix="B"
+		num=include.numB
+		time=include.time
+		room=include.roomB
+		speaker=include.speakerB
+		title=include.titleB 
+		abstract=include.abstractB 
+		affiliation=include.affiliationB %}
+</td>
+<td class="top-aligned">
+	{% assign prefix = include.day | append: "C" %}
+	{% include talkInfo.html 
+		prefix="C"
+		num=include.numC
+		time=include.time
+		room=include.roomC
+		speaker=include.speakerC
+		title=include.titleC
+		abstract=include.abstractC
+		affiliation=include.affiliationC %}
+</td>
+<td class="top-aligned">
+	{% assign prefix = include.day | append: "D" %}
+	{% include talkInfo.html 
+		prefix="D"
+		num=include.numD
+		time=include.time
+		room=include.roomD 
+		speaker=include.speakerD 
+		title=include.titleD 
+		abstract=include.abstractD 
+		affiliation=include.affiliationD %}
+</td>

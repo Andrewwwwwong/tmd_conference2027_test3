@@ -1,0 +1,93 @@
+
+<script>
+    var main = document.getElementById("main");
+    main.onclick = mainHandleClick;
+    
+    window.onload = () => {onLoad()}
+    
+    var displayed = new Set();
+    var highlighted = new Set();
+
+    function buildCookie() {
+        window.localStorage.setItem("highlighted" + window.location.pathname, JSON.stringify(Array.from(highlighted)));
+    }
+    
+    function parseCookie() {
+        return JSON.parse(localStorage.getItem("highlighted"  + window.location.pathname));
+    }
+
+    function onLoad() {
+        let highlighted = parseCookie()
+        
+        for (let id of highlighted) {
+            console.log(id);
+            toggleTalkHighlighted(id);
+        }
+
+        showTalkInfo(window.location.hash.slice(1));
+    }
+    
+    function showTalkInfo(id) {
+        hideAll();
+        var el = document.getElementById(id);
+        el.style.display= "block";
+        window.location.hash = id;
+        displayed.add(el);
+    }
+    function hideTalkInfo(id) {
+        var el = document.getElementById(id);
+        el.style.display = "none";
+        displayed.delete(el);
+    }
+    function hideAll() {
+        for (const el of displayed) {
+            el.style.display = "none";
+            history.replaceState(null, null, ' ');
+        }
+        displayed.clear();
+    }
+    function mainHandleClick(event) {
+        hideAll();
+    }
+
+    function toggleTalkHighlighted(id) {
+        var talkInfo = document.getElementById(id);
+
+        if (!highlighted.has(id)) {
+            highlightTalk(id, talkInfo);
+        } else {
+            unhighlightTalk(id, talkInfo);
+        }
+        
+    }
+
+    function getTalkProgramEntry(talkInfo){
+        return talkInfo.parentElement
+    }
+
+    function getToggleButton(talkInfo) {
+        return talkInfo.getElementsByTagName('button')[0]
+    }
+
+    function highlightTalk(id, talkInfo) {
+        var programEntry = getTalkProgramEntry(talkInfo);
+        var toggleButton = getToggleButton(talkInfo);
+
+        toggleButton.textContent = "📄"
+        programEntry.classList.add("highlighted");        
+        highlighted.add(id);
+        document.cookie = buildCookie();
+    }
+    function unhighlightTalk(id, talkInfo) {
+        var programEntry = getTalkProgramEntry(talkInfo);
+        var toggleButton = getToggleButton(talkInfo);
+        
+        toggleButton.textContent = "📝"
+        programEntry.classList.remove("highlighted");
+        highlighted.delete(id);
+        document.cookie = buildCookie();
+    }
+
+    document.addEventListener('keydown', (event) => {switch (event.keyCode) {case 27: hideAll()}})
+    
+</script>
