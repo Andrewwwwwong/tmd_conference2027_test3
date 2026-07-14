@@ -1,0 +1,298 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+// Theme skin
+@import "basically-basic/themes/{{ site.data.theme.skin | default: 'default' }}";
+
+@import "basically-basic";
+
+/* tweaks */
+
+div.wrapper {
+	transform: none; /* needed otherwise display fixed doesn't work for some reason. */
+}
+
+/* general */
+
+/* top menu */
+
+img.site-logo{
+	border-radius: 0px;
+	width: inherit;
+}
+
+div.site-title{
+	padding: 2px;
+	color: black;
+}
+
+#title-link {
+	text-decoration: none;
+}
+
+div.menu-item {
+	padding: 1px 10px 1px 10px;
+	flex-grow: 1;
+	margin: 1px;
+	font-weight: bold;
+	border-radius: 2px;
+}
+
+div.menu-item:hover {
+	background-color: #cccccc;
+}
+
+#menu-main-navigation {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+div.hr-navbar {
+	margin-bottom: 1.5vw;
+	margin-top: 1.5vw;
+	margin-left: 1.5vw;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+@media (max-width: 576px) {
+	div .hr-navbar {
+		flex-wrap: wrap;
+	}
+	
+	div.menu-item{
+		background-color: #cccccc;
+		padding: 10px 10px 10px 10px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	h1.intro-title {
+		font-size: 65px;
+	}
+}
+
+div.hr-navbar-buttonbox {
+	padding-right: 0.5vw;
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	align-self: center;
+}
+
+div.hr-titlebox {
+	flex-grow: 1;
+	flex-basis: 500px;
+}
+
+header.intro {
+	padding-bottom: 0px;
+}
+
+/* portraits */
+
+div.speaker-box{
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+	text-align: center;
+}
+
+@media (max-width: 576px) {
+	div.speaker-box{
+	flex-wrap: wrap;
+	}	
+}
+
+article.portrait{
+	display: grid;
+	place-items: center;
+	margin: 0vw 2.5vw 0vw 2.5vw;
+	border-bottom: none;
+	text-align: center;
+	max-width: inherit;
+	flex-basis: 200px;
+}
+
+img.portrait{
+	width: 100%;
+	height: auto;
+	max-width: 60vw;
+	border-radius: 50%;
+}
+
+/* sponsor section */
+
+div.tmd-sponsors{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	text-align: center;
+	height: auto;
+}
+
+article.tmd-sponsors{
+	display: grid;
+	place-items: center;
+	margin: 0vw 2.5vw 0vw 2.5vw;
+	border-bottom: none;
+	text-align: center;
+	max-width: inherit;
+	flex-basis: 200px;
+}
+
+img.logo{
+	width: 300px;
+	height: auto;
+	max-width: 60vw;
+}
+
+
+
+/* footer */
+
+#footer {
+	background-color: #126370;
+	max-width: inherit;
+	color: white;
+	padding-top: 5px;
+}
+
+#footer a{
+	color: white;
+}
+
+#footer h5{
+	margin-bottom: 0px;
+}
+
+#contact-box {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h5.contact-item-header {
+	display: inline;
+}
+
+
+#contact-box div{
+	padding-right: 2vw;
+}
+
+/* content */
+
+div.entry{
+	display: grid;
+	place-items: center;
+	margin: 0vw 2.5vw 0vw 2.5vw;
+	border-bottom: none;
+}
+
+div.entry-content{
+	place-items: center;
+	width: 100% !important;
+	overflow: auto;
+}
+
+
+div.entry1{
+	display: grid;
+	place-items: left;
+	border-bottom: none;
+}
+
+div.inner {
+	max-width: inherit;
+}
+
+div.topics-grid{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/* program */
+
+div.talk-info{
+	position: fixed;
+	background-color: white;
+	overflow: auto;
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+	overflow: auto;
+	padding: 5px;
+	text-align: left;
+}	
+a.talk-info-button,
+p.talk-info-button {
+	cursor: pointer;
+}
+
+@media (max-width: 576px) {
+	div.topics-grid{
+		justify-content: flex-start;
+		padding-top: 0px;
+	}
+}
+
+div.program-menu {
+	height: 100%;
+
+}
+
+
+div.program-menu-item {
+	max-width: 300px;
+	margin-bottom: 1.5vw;
+	margin-top: 1.5vw;
+	text-align: center;
+}
+
+a.program-menu-item {
+	text-decoration: none;
+	color: #525559;
+}
+
+div.twitter-feed {
+	max-width: 100%;
+	height: auto;
+}
+
+@media (max-width: 576px) {
+	div.program-menu-item {
+		max-width: 100%;
+	}
+}
+
+div.highlighted {
+	background-color: #cccccc;
+}
+
+
+/* tables */
+
+.centred {
+	text-align: center;
+}
+
+.top-aligned {
+	vertical-align: top;
+}
+
+table.schedule {
+	max-width: 700px;
+}
+
+td.time-row {
+	width: 125px;
+	text-align: center;
+}
+
