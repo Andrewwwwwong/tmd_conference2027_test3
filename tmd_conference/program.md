@@ -43,7 +43,7 @@ permalink: /program/
 
 To be confirmed.
 
-{% endcomment %}
+
 
 {% assign days = "Sunday;Monday;Tuesday;Wednesday;Thursday" | split: ";" %}
 
@@ -125,5 +125,5 @@ To be confirmed.
 
 {% include talkInfoJS.html %}
 
-
+{% endcomment %}
 
