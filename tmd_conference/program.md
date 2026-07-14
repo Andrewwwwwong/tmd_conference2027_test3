@@ -3,6 +3,9 @@ layout: page
 title: Program
 permalink: /program/
 ---
+
+To be Confirmed.
+
 {% comment %}
 <article class="entry" style="text-align: center;">
     <img src="{{ '/assets/hotels/20th July.png' | relative_url  }}" width="1000" >
