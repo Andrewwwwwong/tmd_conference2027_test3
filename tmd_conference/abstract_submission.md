@@ -3,11 +3,12 @@ layout: page
 title: Abstract Submission
 permalink: /abstract_submission/
 ---
-## Abstract Submission Form
 
 To be Confirmed.
 
 {% comment %}
+
+## Abstract Submission Form
 
 Abstract submission for posters are now closed. 
 
