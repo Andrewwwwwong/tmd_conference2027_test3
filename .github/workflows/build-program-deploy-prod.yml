@@ -1,0 +1,88 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build Program CSVs and Deploy to Prod
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "prod" ]
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+          
+      ####### Buid the program csvs ###################
+                      
+      - name: "get files"
+        run: curl -L -o "program.xlsx" "https://docs.google.com/uc?export=download&id=${{ secrets.PROGRAM_FILE_ID }}"
+    
+      - name: "check all good"
+        run: ls -R
+    
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r requirements.txt
+      - run: python create_program_csvs.py
+        
+      - name: check it's there
+        run: ls -R
+        
+      ####### Buid the website ###################
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1 # v1.195.0
+        with:
+          ruby-version: '3.1' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+          working-directory: tmd_conference
+
+      - name: Build with Jekyll
+        run: |
+          cd tmd_conference
+          bundle exec jekyll build -d "../site" --baseurl=/
+          cd ..
+        env:
+          JEKYLL_ENV: production
+
+      - name: check for errors!
+        run: git status -uno --porcelain
+        
+      - name: check it's there
+        run: ls -R
+        
+      ####### Deploy the website ###################
+        
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_ADDRESS }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: "${{ secrets.PASSWORD }}"
+          local_path: site/*
+          # known-hosts: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNsjgg+Fx9CWHaPRsOw+0TDa/tn7aM7rwRwE933T5f8v0VsjavMl33zEd+AeI/Du2bA7BV6S9DnOMpQQHM5l8QNNTaTvoNyg8qsjp0om63LYfQ5bS7quKxwys0naksYGEx7/JKvN27sG7aLxoKEavKu39SBUMdK5gwC5NzlGg6T+F19qh2kqeBMIVwV9EkZP26ZgHbqiyzSkxnLT0yosn/jgJjlAc+QeIg3eG1FxtuhsDDCpkIWhbTlYlhsmFjRHKnGoc4WqGMrfcrcFJ96p7J5qD+1zKfJ7pNStDMRcjXRBGnSI0Y0whS19rIZdPb2U2xJJ4jvKjFbHUqrzI3zh9/
+          remote_path: /
+
+          
+          
+        
+          
+
+            
+            
