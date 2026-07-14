@@ -5,6 +5,10 @@ permalink: /abstract_submission/
 ---
 ## Abstract Submission Form
 
+To be Confirmed.
+
+{% comment %}
+
 Abstract submission for posters are now closed. 
 
 For invited speakers, please submit your abstracts to [this link](https://docs.google.com/forms/d/e/1FAIpQLSc75xVe_6g7dRchFeEB5hkJYwTLmlpnvHKhpveOyulFn41F7w/viewform?usp=sf_link). 
@@ -51,3 +55,5 @@ Registering in [Web Of Talents](https://weboftalents.com) is free. It has three 
 Candidates having a profile in Web Of Talents benefit from maximum visibility among their research community. Top candidates stand out very easily thanks to our unique filtering, ranking and video features. Professors and team leaders can benefit from access to a long list of top candidates looking for a position, and detect who are the best with a couple of clicks. The platform is available in Desktop and Laptops (still not in smartphones). For technical issues related to the platform please send an email to info@weboftalents.com. Web Of Talents has been created by scientists to help other scientists. Register today and start to enjoy its benefits for free!
 
 <!--<center><iframe width="1000px" height="7000px" src="https://docs.google.com/forms/d/e/1FAIpQLSc75xVe_6g7dRchFeEB5hkJYwTLmlpnvHKhpveOyulFn41F7w/viewform?embedded=true" frameborder="100" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:370vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen id="abstract-submission-MS-form"> </iframe></center>-->
+
+{% endcomment %}
